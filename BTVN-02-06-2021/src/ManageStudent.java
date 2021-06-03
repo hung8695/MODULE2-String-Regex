@@ -48,6 +48,7 @@ public class ManageStudent {
     }
     Student update(String id){
        if(findById(id)!=null){
+           Student student=findById(id);
            System.out.println("Nhập tên: ");
            findById(id).setName(sc.nextLine());
            System.out.println("Nhập ngày sinh: ");
@@ -60,7 +61,7 @@ public class ManageStudent {
            findById(id).setAddress(sc.nextLine());
            System.out.println("Nhập điểm trung bình: ");
            findById(id).setGpa(Menu.checkInput());
-           return findById(id);
+           return student;
        }
        return null;
 
@@ -69,13 +70,21 @@ public class ManageStudent {
     String creatId(){
         while (true){
             String id=sc.nextLine();
-            if (Regex.validate(Regex.VALID_ID,id)){
+            if (Regex.validate(Regex.VALID_ID,id) && !checkId(id)){
                 return id;
             }
             else {
-                System.out.println("Nhập đúng dịnh dạng!");
+                System.out.println("Id đã tồn tại hoặc nhập sai!");
             }
         }
+    }
+    boolean checkId(String id){
+        for (Student student:studentList){
+            if(student.getId().equals(id)){
+                return true;
+            }
+        }
+        return false;
     }
     String creatDob(){
         while (true){

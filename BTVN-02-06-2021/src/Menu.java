@@ -74,6 +74,7 @@ public class Menu {
                         System.out.println("Đến ");
                         int max = (int) Menu.checkInput();
                         if (manageStudent.findByAge(min, max) != null) {
+                            System.out.println("Kết quả tìm kiếm trong khoảng tuổi từ "+min +" đến "+max+" là: ");
                             for (Student student : manageStudent.findByAge(min, max)) {
                                 System.out.println(student.toString());
                             }
@@ -86,11 +87,13 @@ public class Menu {
                         System.out.println("Đến: ");
                         float max = checkInput();
                         if (manageStudent.findByGpa(min, max) != null) {
+                            System.out.println("Kết quả tìm kiếm trong khoảng điểm từ "+min +" đến "+max+" là:");
                             for (Student student : manageStudent.findByGpa(min, max)) {
                                 System.out.println(student.toString());
                             }
                         } else System.out.println("Không có sinh viên nào có điểm trong khoảng " + min + " đến " + max);
                     } else System.out.println("Nhập sai!");
+                    menu1();
 
                     break;
                 case 5:
@@ -126,5 +129,9 @@ public class Menu {
         System.out.printf("%-12s%-12s%s\n", "4. Tìm", "5. Hiển thị", "6. Sắp xếp");
         System.out.println("0. Thoát");
         System.out.println("Nhập lựa chọn");
+    }
+    static void menu1(){
+        System.out.println("Bấm Enter để quay lại Menu");
+        sc.nextLine();
     }
 }
