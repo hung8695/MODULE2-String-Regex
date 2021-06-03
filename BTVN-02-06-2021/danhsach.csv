@@ -1,2 +1,5 @@
 ID,Name,Date of birth,Gender,Email,Address,GPA
-C0321K01,Hung,08-06-1995,Nam,hung.tran@codegym.vn,Nam Định,9.9
+C0321K01,Trần Quang Hưng,08-06-1995,Nam,hung.tran@codegym.vn,Nam Đinh,9.9
+C0321K02,Nguyễn Việt Tiến,07-02-1993,Nam,tien.nguyen@codegym.vn,Hải Phòng,6.9
+C0321K03,Đàm Vĩnh Hưng,08-06-1971,Nam,hung.dam@codegym.vn,Quảng Nam,9.6
+C0321K22,Phạm Văn Trường,03-05-1995,Nữ,truong.pham@codegym.vn,Thái Bình,6.8

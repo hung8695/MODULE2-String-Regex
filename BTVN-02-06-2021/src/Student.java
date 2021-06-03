@@ -79,7 +79,7 @@ public class Student {
     }
 
     public int getAge(){
-        return Year.now().getValue()-Integer.parseInt(getDob().substring(getDob().length()-5,getDob().length()-1));
+        return Year.now().getValue()-Integer.parseInt(getDob().substring(getDob().length()-4));
     }
 
     @Override

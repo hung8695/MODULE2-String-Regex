@@ -20,7 +20,6 @@ public class ManageStudent {
         studentList.add(creatStudent());
     }
 
-
     Student creatStudent(){
         Student student=new Student();
         System.out.println("Nhập Id: ");
@@ -36,8 +35,35 @@ public class ManageStudent {
         System.out.println("Nhập Địa chỉ: ");
         student.setAddress(sc.nextLine());
         System.out.println("Nhập điểm trung bình: ");
-        student.setGpa(creatGpa());
+        student.setGpa(Menu.checkInput());
         return student;
+    }
+
+    boolean deleteStudent(String id){
+        if(findById(id)!=null){
+            studentList.remove(findById(id));
+            return true;
+        }
+        else return false;
+    }
+    Student update(String id){
+       if(findById(id)!=null){
+           System.out.println("Nhập tên: ");
+           findById(id).setName(sc.nextLine());
+           System.out.println("Nhập ngày sinh: ");
+           findById(id).setDob(creatDob());
+           System.out.println("Nhập giới tính (1 chọn nữ, 2 chọn nam): ");
+           findById(id).setGender(creatGender());
+           System.out.println("Nhập email: ");
+           findById(id).setEmail(creatEmail());
+           System.out.println("Nhập Địa chỉ: ");
+           findById(id).setAddress(sc.nextLine());
+           System.out.println("Nhập điểm trung bình: ");
+           findById(id).setGpa(Menu.checkInput());
+           return findById(id);
+       }
+       return null;
+
     }
 
     String creatId(){
@@ -94,21 +120,6 @@ public class ManageStudent {
                 System.out.println("Email phải có dạng \"tên.họ@codegym.vn \"");
         }
     }
-    float creatGpa(){
-        float gpa=-1;
-        while (gpa==-1){
-            try{
-                gpa= sc.nextFloat();
-            } catch (InputMismatchException e){
-                System.out.println("Nhập lại ! ");
-            } finally {
-                sc.nextLine();
-
-            }
-
-        }
-        return gpa;
-    }
 
     Student findById(String id){
         for (int i = 0; i < studentList.size(); i++) {
@@ -122,7 +133,7 @@ public class ManageStudent {
     List<Student>findByName(String name){
         List <Student>listById=new ArrayList();
         for (int i = 0; i <studentList.size(); i++) {
-            if(studentList.get(i).getName().equals(name)){
+            if(studentList.get(i).getName().contains(name)){
                 listById.add(studentList.get(i));
             }
         }
